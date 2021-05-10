@@ -32,12 +32,14 @@ export const Writer = styled.input`
     width: 486px;
     height: 52px;
     padding-left: 16px;
+    border: 1px solid #BDBDBD;
 `
 
 export const Password = styled.input`
     width: 486px;
     height: 52px;
     padding-left: 16px;
+    border: 1px solid #BDBDBD;
 `
 
 export const Label = styled.div`
@@ -52,6 +54,7 @@ export const Subject = styled.input`
     width: 996px;
     height: 52px;
     padding-left: 16px;
+    border: 1px solid #BDBDBD;
 `
 
 export const Contents = styled.textarea`
@@ -59,6 +62,7 @@ export const Contents = styled.textarea`
     height: 480px;
     padding-left: 16px;
     padding: 14px;
+    border: 1px solid #BDBDBD;
 `
 
 export const ZipcodeWrapper = styled.div`
@@ -70,6 +74,7 @@ export const Zipcode = styled.input`
     width: 77px;
     height: 52px;
     padding-left: 16px;
+    border: 1px solid #BDBDBD;
 `
 
 export const SearchButton = styled.button`
@@ -86,12 +91,14 @@ export const Address = styled.input`
     height: 52px;
     margin-top: 16px;
     padding-left: 16px;
+    border: 1px solid #BDBDBD;
 `
 
 export const Youtube = styled.input`
     width: 996px;
     height: 52px;
     padding-left: 16px;
+    border: 1px solid #BDBDBD;
 `
 
 export const ImageWrapper = styled.div`
