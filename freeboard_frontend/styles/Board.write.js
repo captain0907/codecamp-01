@@ -5,14 +5,12 @@ export const Wrapper = styled.div`
 	height: 1847px;
 	border: 1px solid black;
 	margin: 100px;
-
 	padding-top: 80px;
 	padding-left: 102px;
 	padding-right: 102px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 	border: none;
 	box-shadow: 0px 0px 10px gray;
 `;
@@ -47,6 +45,8 @@ export const Password = styled.input`
 
 export const Label = styled.div`
 	padding-bottom: 16px;
+	font-size: 16px;
+	font-weight: 500;
 `;
 
 export const InputWrapper = styled.div`
@@ -114,6 +114,8 @@ export const UploadButton = styled.button`
 	height: 78px;
 	background-color: #bdbdbd;
 	margin-right: 24px;
+	outline: none;
+	border: none;
 	cursor: pointer;
 `;
 
@@ -129,6 +131,7 @@ export const RadioButton = styled.input`
 export const RadioLabel = styled.label`
 	margin-left: 8px;
 	margin-right: 20px;
+	font-weight: 500;
 	cursor: pointer;
 `;
 
@@ -144,6 +147,8 @@ export const CancelButton = styled.button`
 	height: 52px;
 	background-color: #bdbdbd;
 	border: none;
+	font-size: 16px;
+	font-weight: 500;
 	margin-left: 12px;
 	margin-right: 12px;
 	cursor: pointer;
@@ -154,7 +159,9 @@ export const SubmitButton = styled.button`
 	height: 52px;
 	background-color: #ffd600;
 	border: none;
+	font-size: 16px;
+	font-weight: 500;
 	margin-left: 12px;
-	margin-right: 11px;
+	margin-right: 12px;
 	cursor: pointer;
 `;
