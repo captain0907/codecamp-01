@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
 	height: 1200px;
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 	justify-content: center;
 `;
 
@@ -126,8 +127,23 @@ export const DisLikeWrapper = styled.div`
 	height: 70px;
 	justify-content: space-between;
 `;
-export const DisLikeImg = styled.img``;
+export const DisLikeImg = styled.img`
+	margin-top: 3px;
+`;
 export const DisLikeCount = styled.div`
 	font-size: 18px;
 	font-weight: 400;
+`;
+
+export const UpdateBtn = styled.button`
+	margin-top: 80px;
+
+	width: 179px;
+	height: 52px;
+	font-weight: 500;
+	font-size: 16px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
 `;

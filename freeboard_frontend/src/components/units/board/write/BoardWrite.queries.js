@@ -5,6 +5,18 @@ export const CREATE_BOARD = gql`
 		createBoard(createBoardInput: $createBoardInput) {
 			title
 			writer
+			_id
+		}
+	}
+`;
+
+export const FETCH_BOARD = gql`
+	query fetchBoard($boardId: ID!) {
+		fetchBoard(boardId: $boardId) {
+			writer
+			title
+			contents
+			createdAt
 		}
 	}
 `;

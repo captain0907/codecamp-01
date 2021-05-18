@@ -9,8 +9,8 @@ export const FETCH_BOARDS = gql`
 `;
 
 export const FETCH_BOARD = gql`
-	query fetchBoard {
-		fetchBoard(boardId: "609b615bc9f6ad002a465642") {
+	query fetchBoard($boardId: ID!) {
+		fetchBoard(boardId: $boardId) {
 			writer
 			title
 			contents

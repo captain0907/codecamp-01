@@ -23,9 +23,10 @@ import {
 	DisLikeImg,
 	DisLikeCount,
 	TitleWrapper,
+	UpdateBtn,
 } from "./BoardPage.style";
 
-export default function BoardPageUI({ board }) {
+export default function BoardPageUI({ board, handleUpdate }) {
 	return (
 		<Wrapper>
 			<Shadow>
@@ -43,8 +44,8 @@ export default function BoardPageUI({ board }) {
 							</HeaderWriterWrapper>
 						</HeaderLeftWrapper>
 						<HeaderRightWrapper>
-							<HeaderLinkImg src="link.png"></HeaderLinkImg>
-							<HeaderNavImg src="nav.png"></HeaderNavImg>
+							<HeaderLinkImg src="/link.png"></HeaderLinkImg>
+							<HeaderNavImg src="/nav.png"></HeaderNavImg>
 						</HeaderRightWrapper>
 					</HeaderWrapper>
 					<DivideLine></DivideLine>
@@ -66,6 +67,7 @@ export default function BoardPageUI({ board }) {
 					</ContentsWrapper>
 				</Body>
 			</Shadow>
+			<UpdateBtn onClick={handleUpdate}>수정하기</UpdateBtn>
 		</Wrapper>
 	);
 }

@@ -1,68 +1,69 @@
 import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
-export default function MutationPage() {
-	const [writer, setWriter] = useState("");
-	const [password, setPassword] = useState("");
-	const [title, setTitle] = useState("");
-	const [contents, setContents] = useState("");
+import { useRouter } from "next/router";
 
+export default function MutationPage() {
+	const router = useRouter();
 	const CREATE_BOARD = gql`
-		mutation zzzzzzzzzzz(
-			$writer: String
-			$password: String
-			$title: String
-			$contents: String
-		) {
-			createBoard(
-				writer: $writer
-				password: $password
-				title: $title
-				contents: $contents
-			) {
+		mutation createProfile($name: String, $age: Int, $school: String) {
+			createProfile(name: $name, age: $age, school: $school) {
 				message
 			}
 		}
 	`;
-	const [createBoard] = useMutation(CREATE_BOARD);
+
+	const [age, setAge] = useState();
+
+	const [profile, setProfile] = useState({
+		name: "",
+		age,
+		school: "",
+	});
+
+	const [createProfile] = useMutation(CREATE_BOARD);
+
+	const handleInput = (event) => {
+		setProfile({
+			...profile,
+			[event.target.name]: event.target.value,
+			age,
+		});
+		console.log(profile);
+	};
 
 	async function onClickPost() {
 		try {
-			const result = await createBoard({
+			const result = await createProfile({
 				variables: {
-					writer,
-					password,
-					title,
-					contents,
+					...profile,
+					age,
 				},
 			});
-			console.log(result);
+			alert(result.data.createProfile.message);
+			router.push(`/query/${profile.name}`);
 		} catch (error) {
 			alert(error.message);
 		}
 	}
-	const onChangeWriter = (event) => {
-		setWriter(event.target.value);
+	const handleAge = (event) => {
+		setAge(Number(event.target.value));
+		console.log(age);
 	};
-	const onChangePassword = (event) => {
-		setPassword(event.target.value);
+
+	const onClickRoutin = () => {
+		router.replace("/query");
 	};
-	const onChangeTitle = (event) => {
-		setTitle(event.target.value);
-	};
-	const onChangeContents = (event) => {
-		setContents(event.target.value);
-	};
+
 	return (
 		<>
-			작성자: <input type="text" onChange={onChangeWriter}></input>
+			이름: <input type="text" name="name" onChange={handleInput}></input>
 			<br />
-			비밀번호: <input type="password" onChange={onChangePassword}></input>
+			나이: <input type="password" name="age" onChange={handleAge}></input>
 			<br />
-			제목: <input type="text" onChange={onChangeTitle}></input>
-			<br />
-			내용: <input type="text" onChange={onChangeContents}></input>
+			학교: <input type="text" name="school" onChange={handleInput}></input>
 			<br />
 			<button onClick={onClickPost}>게시물 등록하기</button>
+			<button onClick={onClickRoutin}>쿼리로 이동</button>
 		</>
 	);
 }
