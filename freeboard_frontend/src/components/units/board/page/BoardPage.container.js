@@ -8,9 +8,12 @@ export default function BoardPage() {
 	const router = useRouter();
 	console.log(router.query.id);
 
+
 	const { data } = useQuery(FETCH_BOARD, {
 		variables: { boardId: router.query.id },
 	});
+
+
 
 	const [board, setBoard] = useState();
 	useEffect(() => {

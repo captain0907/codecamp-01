@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 
 function BoardWritePage() {
 	const router = useRouter();
-
 	const [createBoard] = useMutation(CREATE_BOARD);
+	const [isTrue, setIsTrue] = useState(true);
 
 	const { data } = useQuery(FETCH_BOARD, {
 		variables: { boardId: router.query.id },
@@ -20,8 +20,6 @@ function BoardWritePage() {
 		content: "",
 	});
 	console.log(data);
-
-	const [isTrue, setIsTrue] = useState(true);
 
 	const handleChangeInput = (event) => {
 		const newInput = {
