@@ -1,3 +1,4 @@
+import { Query } from "../../../../commons/types/generated/types";
 import {
 	BestCardWrapper,
 	BestTitle,
@@ -28,7 +29,11 @@ import {
 	Table,
 } from "./Boards.style";
 
-export default function BoardsUI({ data }) {
+interface IProps {
+	data?: Query;
+}
+
+export default function BoardsUI({ data }: IProps) {
 	console.log(data?.fetchBoards);
 	return (
 		<Wrapper>

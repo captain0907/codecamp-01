@@ -1,8 +1,17 @@
-import QueryUI from "./Query.presenter";
+import QueryUI from "./Querywrite.presenter";
 import { CREATE_PROFILE } from "./Querywrite.queries";
+import { useMutation } from "@apollo/client";
+import {
+	Mutation,
+	MutationCreateProfileArgs,
+} from "../../../commons/types/generated/types";
+import { useState } from "react";
 
 const Query = () => {
-	const [createProfile] = useMutation(CREATE_PROFILE);
+	const [createProfile] = useMutation<Mutation, MutationCreateProfileArgs>(
+		CREATE_PROFILE,
+	);
+
 	const [profile, setProfile] = useState({
 		name: "",
 		age: "",

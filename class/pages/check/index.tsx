@@ -93,7 +93,7 @@ export default function Check() {
 						//*배열에 해당 id값이 없으면 체크, 있으면 풀기 방식
 						checked={checkItems.includes(data.id) ? true : false}
 						//* onClick으로 할시 잘 돌아가지만 브라우저 console창에 오류가 있다.
-						onClick={handleCheck}
+						onChange={handleCheck}
 					></input>
 					<span>{data.title}</span>
 				</div>

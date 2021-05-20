@@ -32,43 +32,43 @@ export default function BoardWritePage() {
 	const [youtube, setYoutube] = useState("");
 	const [zipcode, setZipcode] = useState("");
 
-	const handleWriter = (e) => {
-		setWriter(e.target.value);
-		console.log(writer);
-	};
+	// const handleWriter = (e) => {
+	// 	setWriter(e.target.value);
+	// 	console.log(writer);
+	// };
 
-	const handlePw = (e) => {
-		setPw(e.target.value);
-		console.log(pw);
-	};
+	// const handlePw = (e) => {
+	// 	setPw(e.target.value);
+	// 	console.log(pw);
+	// };
 
-	const handleTitle = (e) => {
-		setTitle(e.target.value);
-		console.log(title);
-	};
+	// const handleTitle = (e) => {
+	// 	setTitle(e.target.value);
+	// 	console.log(title);
+	// };
 
-	const handleContent = (e) => {
-		setContent(e.target.value);
-		console.log(content);
-	};
+	// const handleContent = (e) => {
+	// 	setContent(e.target.value);
+	// 	console.log(content);
+	// };
 
-	const handleYoutube = (e) => {
-		setYoutube(e.target.value);
-		console.log(youtube);
-	};
+	// const handleYoutube = (e) => {
+	// 	setYoutube(e.target.value);
+	// 	console.log(youtube);
+	// };
 
-	const handleZipCode = (e) => {
-		setZipcode(e.target.value);
-		console.log(zipcode);
-	};
+	// const handleZipCode = (e) => {
+	// 	setZipcode(e.target.value);
+	// 	console.log(zipcode);
+	// };
 
-	const handleRegister = () => {
-		console.log(writer, pw, title, content, youtube, zipcode);
-	};
+	// const handleRegister = () => {
+	// 	console.log(writer, pw, title, content, youtube, zipcode);
+	// };
 
 	return (
 		<Wrapper>
-			<Title>게시판 등록</Title>
+			{/* <Title>게시판 등록</Title>
 			<WriterWrapper>
 				<InputWrapper>
 					<Label>작성자</Label>
@@ -137,7 +137,7 @@ export default function BoardWritePage() {
 			<ButtonWrapper>
 				<CancelButton>취소하기</CancelButton>
 				<SubmitButton onClick={handleRegister}>등록하기</SubmitButton>
-			</ButtonWrapper>
+			</ButtonWrapper> */}
 		</Wrapper>
 	);
 }

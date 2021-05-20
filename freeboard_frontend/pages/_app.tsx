@@ -1,7 +1,7 @@
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: any) {
 	const clinet = new ApolloClient({
 		uri: "http://backend.codebootcamp.co.kr/graphql",
 		cache: new InMemoryCache(),
