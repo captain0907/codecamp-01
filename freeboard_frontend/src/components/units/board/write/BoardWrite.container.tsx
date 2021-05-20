@@ -3,25 +3,42 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { CREATE_BOARD, FETCH_BOARD } from "./BoardWrite.queries";
 import { useRouter } from "next/router";
+import {
+	Mutation,
+	MutationCreateBoardArgs,
+	Query,
+	QueryFetchBoardArgs,
+} from "../../../../commons/types/generated/types";
 
 function BoardWritePage() {
 	const router = useRouter();
-	const [createBoard] = useMutation(CREATE_BOARD);
+
+	const [createBoard] = useMutation<Mutation, MutationCreateBoardArgs>(
+		CREATE_BOARD,
+	);
 	const [isTrue, setIsTrue] = useState(true);
 
-	const { data } = useQuery(FETCH_BOARD, {
-		variables: { boardId: router.query.id },
+	const { data } = useQuery<Query, QueryFetchBoardArgs>(FETCH_BOARD, {
+		variables: { boardId: String(router.query.id) },
 	});
 
 	const [input, setInput] = useState({
 		writer: "",
 		password: "",
 		title: "",
-		content: "",
+		contents: "",
 	});
-	console.log(data);
 
-	const handleChangeInput = (event) => {
+	useEffect(() => {
+		setInput({
+			writer: data?.fetchBoard.writer || "",
+			password: "",
+			title: data?.fetchBoard.title ? data.fetchBoard.title : "",
+			contents: data?.fetchBoard.contents ? data.fetchBoard.contents : "",
+		});
+	}, [data]);
+
+	const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const newInput = {
 			...input,
 			[event.target.name]: event.target.value,
@@ -32,7 +49,7 @@ function BoardWritePage() {
 			newInput.writer &&
 			newInput.password &&
 			newInput.title &&
-			newInput.content
+			newInput.contents
 		) {
 			setIsTrue(false);
 		} else {
@@ -48,12 +65,12 @@ function BoardWritePage() {
 						writer: input.writer,
 						password: input.password,
 						title: input.title,
-						contents: input.content,
+						contents: input.contents,
 					},
 				},
 			});
 			alert("게시글 등록 성공");
-			router.push(`/board/${result.data.createBoard._id}`);
+			router.push(`/board/${result.data?.createBoard._id}`);
 		} catch (error) {
 			alert(error);
 		}

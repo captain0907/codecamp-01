@@ -1,4 +1,8 @@
 import {
+	Query,
+	QueryFetchBoardArgs,
+} from "../../../../commons/types/generated/types";
+import {
 	Wrapper,
 	Shadow,
 	Body,
@@ -26,7 +30,12 @@ import {
 	UpdateBtn,
 } from "./BoardPage.style";
 
-export default function BoardPageUI({ board, handleUpdate }) {
+interface IBoardPagePros {
+	data?: Query;
+	handleUpdate: () => void;
+}
+
+export default function BoardPageUI({ data, handleUpdate }: IBoardPagePros) {
 	return (
 		<Wrapper>
 			<Shadow>
@@ -35,12 +44,8 @@ export default function BoardPageUI({ board, handleUpdate }) {
 						<HeaderLeftWrapper>
 							<HeaderProfileImg src="/profileImg.png"></HeaderProfileImg>
 							<HeaderWriterWrapper>
-								<HeaderWriter>
-									{!board ? <></> : board.fetchBoard.writer}
-								</HeaderWriter>
-								<HeaderDate>
-									{!board ? <></> : board.fetchBoard.createdAt}
-								</HeaderDate>
+								<HeaderWriter>{data?.fetchBoard.writer}</HeaderWriter>
+								<HeaderDate>{data?.fetchBoard.createdAt}</HeaderDate>
 							</HeaderWriterWrapper>
 						</HeaderLeftWrapper>
 						<HeaderRightWrapper>
@@ -51,9 +56,9 @@ export default function BoardPageUI({ board, handleUpdate }) {
 					<DivideLine></DivideLine>
 					<ContentsWrapper>
 						<TitleWrapper>
-							<Title>{!board ? <></> : board.fetchBoard.title}</Title>
+							<Title>{data?.fetchBoard.title}</Title>
 						</TitleWrapper>
-						<Content>{!board ? <></> : board.fetchBoard.contents}</Content>
+						<Content>{data?.fetchBoard.contents}</Content>
 						<LikeBtnWrapper>
 							<LikeWrapper>
 								<LikeImg src="/like.png"></LikeImg>
